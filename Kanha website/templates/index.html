@@ -1,9 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Kanha Sweets</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
-    <h1>Welcome to Kanha Sweets 🍬</h1>
+
+    <div class="navbar">
+        Kanha Sweets 🍬
+    </div>
+
+    <div class="container">
+
+        <div class="hero">
+            <h1>Fresh & Delicious Sweets</h1>
+            <p>Order your favorite sweets online</p>
+        </div>
+
+        <div class="product-grid">
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=1000&auto=format&fit=crop">
+
+                <div class="product-info">
+
+                    <h3>{{ product.name }}</h3>
+
+                    <div class="price">
+                        ₹{{ product.price }}
+                    </div>
+
+                    <a class="order-btn"
+                       href="https://wa.me/919431176854?text=I want to order {{ product.name }}">
+                        Order on WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 Kanha Sweets | Made with ❤️
+    </div>
+
 </body>
+
 </html>
